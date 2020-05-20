@@ -1,69 +1,29 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import TextBox from '../component/TextBox'
 
-const ListBox: React.FC = () => {
+interface Item {
+  name: string;
+}
+
+interface Props {
+  listItems: Item[],
+}
+
+const ListBox: React.FC<Props> = (props) => {
+
   return (
     <Box>
-      <TitleContainer>
-        Tier <span style={{ fontSize: 50 }}>🥇</span>
-      </TitleContainer>
+      <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+        <TextBox />
+        <TitleContainer>
+          Tier <span style={{ fontSize: 50 }}>🥇</span>
+        </TitleContainer>
+      </div>
       <ListItemContainer>
-
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
-        <ListItem><p>React Native</p></ListItem>
+        {props.listItems.map(item => (
+          <ListItem key={item.name}><p>{item.name}</p></ListItem>
+        ))}
       </ListItemContainer>
     </Box>
   )
